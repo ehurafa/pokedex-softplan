@@ -1,0 +1,5 @@
+<div class="pagination">
+    <nav>
+        <a *ngFor="let page of pages,  index as i" (click)="next(i)" [ngClass]="{ 'active': i + 1 == active}">{{ i + 1 }}</a>
+    </nav>
+</div> 

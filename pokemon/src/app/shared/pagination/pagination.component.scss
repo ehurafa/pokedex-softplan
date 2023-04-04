@@ -1,0 +1,27 @@
+@import '../../../config/colors';
+@import '../../../config/mixins';
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    a {
+        display: inline-block;
+        background: $red;
+        color: #fff;
+        margin: 0 5px;
+        height: 24px;
+        padding: 0 10px;
+        border-radius: 10px;
+        cursor: pointer;
+
+        &:hover {
+            @include transition(background .5s ease);
+
+            background: $secondaryRed;
+        }
+
+        &.active {
+            background: $blue;
+        }
+    }
+}

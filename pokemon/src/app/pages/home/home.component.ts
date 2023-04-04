@@ -12,17 +12,18 @@ export class HomeComponent implements OnInit {
   private allPokemons: any;
   public getAllPokemons: any;
   public error: boolean = false;
+  public pageNumber: any = 1;
 
   constructor(private pokemonsService: PokemonsService) { }
 
   public pokemons: any = [];
 
   ngOnInit() {
-   this.getPokemons();
+   this.getPokemons(1);
   }
 
-  public getPokemons(){
-    this.pokemonsService.getPokemons().subscribe({
+  public getPokemons(offset: number){
+    this.pokemonsService.getPokemons(offset).subscribe({
       next: (res) => {
         const { results } = res
         console.log('RES ', results);
@@ -40,5 +41,14 @@ export class HomeComponent implements OnInit {
 
    
     this.getAllPokemons = filter;
+  }
+
+  public nextPage(page: any) {
+    this.getPokemons(page);
+    this.setPageNumber(page)
+  }
+
+  public setPageNumber(page: number | string) {
+    this.pageNumber = page;
   }
 }
