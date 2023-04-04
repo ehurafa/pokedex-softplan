@@ -1,0 +1,38 @@
+@import './mixins';
+
+%input {
+    @include transition(background .5s ease);
+    border: 0;
+    outline: none;
+    background: $yellow;
+    color: #444;
+    font-size: $textSize;
+    width: 100%;
+    &:focus {
+        background: $secondaryYellow;
+        color: #000;
+    }
+}
+
+%button {
+    @include border-radius(20px);
+    @include transition(background .5s ease);
+
+    display: inline-block;
+    border: 0;
+    outline: none;
+    height: 40px;
+    line-height: 1rem;
+    font-size: $textSize;
+    background: $yellow;
+    color: $secondaryBlack;
+    cursor: pointer;
+    &:hover {
+        color: $black;
+    }
+
+    &.danger {
+        color: $black;
+        background: $red;
+    }
+}

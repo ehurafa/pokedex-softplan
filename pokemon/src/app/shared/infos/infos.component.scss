@@ -1,0 +1,63 @@
+@import '../../../config/colors';
+@import '../../../config/placeholders';
+@import '../../../config/mixins';
+
+.infos {
+
+    border-radius: 75px;
+    height: 150px;
+    background: $blue;
+
+    figure {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        img {
+            height: auto;
+        }
+    }
+    form {
+        margin-top: 12px;
+        display: block;
+        width: 100%;
+        input {
+            @extend %input;
+            @include border-radius(15px);
+
+            height: 30px;
+            padding: 0 20px;
+        }
+        textarea {
+            @extend %input;
+            @include border-radius(40px);
+
+            height: 80px;
+            padding: 10px 20px 0 30px;
+            width: 100%;
+            resize: none;
+        }
+        button {
+            @extend %button;
+
+            margin-top: 35px;
+            margin-left: 5px;
+        }
+
+    }
+
+    &__description-area {
+        display: flex;
+        margin-top: 12px;
+    }
+
+    &__right  {
+        figure {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            img {
+                height: 50px;
+            }
+        }
+    }
+}
