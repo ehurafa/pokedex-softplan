@@ -1,0 +1,36 @@
+@import '../../../config/placeholders';
+
+.find {
+    padding: 25px 0;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    input {
+        @extend %input;
+
+        width: 100%;
+        border: 1px solid $secondaryGrey;
+        background: #eee;
+        height: 40px;
+        padding-left: 10px;
+        &:hover {
+            background: #fff;
+        }
+        &:focus {
+            border-color: $blue;
+            background: #fff;
+        }
+    }
+    button {
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        margin-left: -40px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        &:focus {
+            outline: none;
+        }
+    }
+}
