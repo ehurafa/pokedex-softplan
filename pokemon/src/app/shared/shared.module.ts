@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 import { HeaderComponent } from './header/header.component';
@@ -20,7 +21,8 @@ import { EmptyComponent } from './empty/empty.component';
   exports: [HeaderComponent, InfosComponent, FindComponent, PaginationComponent, EmptyComponent],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ]
 })
 export class SharedModule { }

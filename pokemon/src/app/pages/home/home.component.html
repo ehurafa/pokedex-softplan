@@ -1,5 +1,7 @@
 <find (emitSearch)="search($event)"></find>
 <div class="container">
+    <div>favorites -> {{ favorites$ | async }}</div>
+    <button (click)="teste()">favoritar</button>
     <div class="home">
         <empty *ngIf="empty"></empty>
         <ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">

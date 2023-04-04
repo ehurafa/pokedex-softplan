@@ -10,14 +10,17 @@
             <input type="text" placeholder="Nome do Pokémon" [formControl]="name" value="name" /> 
             <div class="infos__description-area">
                 <textarea placeholder="Aqui deve apresentar o conteúdo adicionado" [formControl]="description"></textarea>
-                <button>Adicionar comentário</button>
+                <a [routerLink]="['/edit', pokemon.id]">
+                  <span class="badge">{{ pokemon.id }}</span>{{ pokemon.name }}
+                </a>
+                <!-- <button (click)="edit()">Adicionar comentário</button> -->
                 <button class="danger">Excluir comentário</button>
             </div>
         </form>
       </div>
       <div class="col infos__right col-1">
-        <figure>
-          <img src="assets/img/favorite-star.png" *ngIf="favorite; else elseBlock"/>
+        <figure (click)="onFavorite()">
+          <img src="assets/img/favorite-star.png" *ngIf="favorite; else elseBlock" />
           <ng-template #elseBlock>
             <img src="assets/img/star.png" />
           </ng-template>          

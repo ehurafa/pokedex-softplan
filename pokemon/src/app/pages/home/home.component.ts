@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { map } from 'rxjs';
 
 import { PokemonsService } from 'src/app/services/pokemons.service';
+import { FavoriteState, favoritar } from 'src/app/store/app.state';
 
 @Component({
   selector: 'home',
@@ -15,9 +18,20 @@ export class HomeComponent implements OnInit {
   public pageNumber: any = 1;
   public empty: boolean = false;
 
-  constructor(private pokemonsService: PokemonsService) { }
+  constructor(
+    private pokemonsService: PokemonsService,
+    private store: Store<{ favorites: FavoriteState }>
+    ) { }
 
   public pokemons: any = [];
+
+  favorites$ = this.store.select('favorites')
+                          .pipe(
+                            map(e => {
+                              console.log('e >>> ', e)
+                              // e.favorites
+                            })
+                          )
 
   ngOnInit() {
    this.getPokemons(1);
@@ -52,4 +66,10 @@ export class HomeComponent implements OnInit {
   public setPageNumber(page: number | string) {
     this.pageNumber = page;
   }
+
+  public teste() {
+    console.log('teste ', this.store)
+    this.store.dispatch(favoritar())
+    console.log('teste ', this.store)
+   }
 }

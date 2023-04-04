@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { PokemonsService } from 'src/app/services/pokemons.service';
 
@@ -11,18 +12,27 @@ import { PokemonsService } from 'src/app/services/pokemons.service';
 export class InfosComponent {
 
   @Input() externalName: string = '';
+  @Input() favorite: boolean = false;
 
   public error: boolean = false;
-  public favorite: boolean = false;
   public pokemon: any = {};
 
   constructor(
-    private pokemonsService: PokemonsService
+    private pokemonsService: PokemonsService,
+    private route: ActivatedRoute,
+    private router: Router
     ) { }
 
   name = new FormControl('');
   description = new FormControl('');
 
+  public onFavorite() {
+    this.favorite = !this.favorite;
+  }
+
+  public edit() {
+    this.router.navigate(['items'], { relativeTo: this.route });
+  }
 
   ngOnInit() {
     this.pokemonsService.getPokemon(this.externalName).subscribe({
