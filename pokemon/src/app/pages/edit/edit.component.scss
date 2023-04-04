@@ -14,7 +14,9 @@
             @include border-radius(4px);
 
             margin-bottom: 20px;
+            height: 35px;
             background: #fff;
+            padding-left: 10px;
 
             &:hover {
                 background: #fff;
@@ -30,6 +32,9 @@
 
             height: 200px;
             background: #fff;
+            padding-left: 10px;
+            padding-top: 10px;
+            resize: none;
 
             &:hover {
                 background: #fff;

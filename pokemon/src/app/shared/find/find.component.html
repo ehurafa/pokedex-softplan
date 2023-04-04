@@ -1,4 +1,4 @@
 <div class="find">
-    <input type="text" placeholder="Pesquisar Pokemón" />
+    <input type="text" #input (keyup)="search(input.value)"  placeholder="Pesquisar Pokemón" />
     <button type="button"><img src="assets/img/find.png" width="20" /></button>
 </div>

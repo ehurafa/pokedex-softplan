@@ -1,4 +1,8 @@
-<find></find>
+<find (emmitSearch)="search($event)"></find>
 <div class="container">
-    <infos></infos>
+    <div class="home">
+        <ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">
+            <infos [pokemon]="pokemon"></infos>
+        </ng-template>
+    </div>
 </div>
