@@ -10,6 +10,7 @@ import { InfosComponent } from './infos/infos.component';
     HeaderComponent,
     InfosComponent
   ],
+  exports: [HeaderComponent, InfosComponent],
   imports: [
     CommonModule
   ]
