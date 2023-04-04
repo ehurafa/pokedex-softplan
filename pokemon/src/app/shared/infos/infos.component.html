@@ -17,8 +17,10 @@
       </div>
       <div class="col infos__right col-1">
         <figure>
-          <img src="assets/img/star.png" />
-          <img src="assets/img/favorite-star.png" />
+          <img src="assets/img/favorite-star.png" *ngIf="favorite; else elseBlock"/>
+          <ng-template #elseBlock>
+            <img src="assets/img/star.png" />
+          </ng-template>          
         </figure>
       </div>
     </div>

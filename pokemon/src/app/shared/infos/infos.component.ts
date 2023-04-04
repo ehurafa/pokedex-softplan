@@ -10,4 +10,6 @@ export class InfosComponent {
   name = new FormControl('');
   description = new FormControl('');
 
+  public favorite: boolean = false;
+
 }
