@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'infos',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./infos.component.scss']
 })
 export class InfosComponent {
+  name = new FormControl('');
+  description = new FormControl('');
 
 }

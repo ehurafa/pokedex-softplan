@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
 
+import { SharedModule } from '../shared/shared.module'
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -11,7 +13,8 @@ import { DetailsComponent } from './details/details.component';
   ],
   exports: [HomeComponent, DetailsComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ]
 })
 export class PagesModule { }
