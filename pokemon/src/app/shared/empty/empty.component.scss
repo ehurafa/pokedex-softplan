@@ -1,0 +1,12 @@
+@import '../../../config/colors';
+@import '../../../config/mixins';
+
+.empty {
+    @include border-radius(5px);
+
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}

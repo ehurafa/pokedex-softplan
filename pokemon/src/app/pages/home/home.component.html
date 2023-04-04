@@ -1,9 +1,10 @@
 <find (emitSearch)="search($event)"></find>
 <div class="container">
     <div class="home">
+        <empty *ngIf="empty"></empty>
         <ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">
             <infos [externalName]="pokemon.name"></infos>
         </ng-template>
     </div>
-    <pagination (emitNext)="nextPage($event)" [active]="pageNumber"></pagination>
+    <pagination (emitNext)="nextPage($event)" [active]="pageNumber" *ngIf="!empty"></pagination>
 </div>

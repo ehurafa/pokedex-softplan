@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   public getAllPokemons: any;
   public error: boolean = false;
   public pageNumber: any = 1;
+  public empty: boolean = false;
 
   constructor(private pokemonsService: PokemonsService) { }
 
@@ -37,10 +38,10 @@ export class HomeComponent implements OnInit {
   public search(value: string){
     const filter = this.allPokemons.filter( (res: any ) => {
       return !res.name.indexOf(value.toLowerCase());
-    });
-
-   
+    });   
     this.getAllPokemons = filter;
+    filter.length ? this.empty = false : this.empty = true;
+    console.log(this.getAllPokemons.length)
   }
 
   public nextPage(page: any) {
