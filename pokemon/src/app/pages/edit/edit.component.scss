@@ -1,0 +1,49 @@
+@import '../../../config/colors';
+@import '../../../config/placeholders';
+@import '../../../config/mixins';
+
+.edit {
+    background: $tertiaryGrey;
+    width: 80%;
+    padding: 50px 20px 70px 30px;
+
+    form {
+        display: block;
+        input {
+            @extend %input;
+            @include border-radius(4px);
+
+            margin-bottom: 20px;
+            background: #fff;
+
+            &:hover {
+                background: #fff;
+            }
+            &:focus {
+                border-color: $blue;
+                background: #fff;
+            }
+        }
+        textarea {
+            @extend %input;
+            @include border-radius(4px);
+
+            height: 200px;
+            background: #fff;
+
+            &:hover {
+                background: #fff;
+            }
+            &:focus {
+                border-color: $blue;
+                background: #fff;
+            }
+        }
+
+        button {
+            float: right;
+            margin-top: 20px;
+        }
+
+    }
+}
