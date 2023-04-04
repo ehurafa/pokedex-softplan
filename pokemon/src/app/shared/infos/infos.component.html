@@ -2,14 +2,14 @@
     <div class="row">
       <div class="col infos__left col-2">
         <figure>
-          <img src="assets/img/pokemon-logo.png" width="100%" />
+          <img [src]="pokemon?.sprites?.front_default" width="100%" /> 
         </figure>
       </div>
       <div class="col infos__center">
         <form>
-            <input type="text" placeholder="Nome do Pokémon" [formControl]="name"  />
+            <input type="text" placeholder="Nome do Pokémon" [formControl]="name" value="name" /> 
             <div class="infos__description-area">
-                <textarea placeholder="Aqui deve apresentar o contaúdo adicionado" [formControl]="description"></textarea>
+                <textarea placeholder="Aqui deve apresentar o conteúdo adicionado" [formControl]="description"></textarea>
                 <button>Adicionar comentário</button>
                 <button class="danger">Excluir comentário</button>
             </div>

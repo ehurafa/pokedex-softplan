@@ -18,9 +18,16 @@ export class PokemonsService {
   }
 
   getPokemons(offset: number | string = 1):Observable<Pokemons> {
-    return this.http.get<Pokemons>(`${this.api}/pokemon/?offset=${offset}&limit=150`).pipe(
+    return this.http.get<Pokemons>(`${this.api}/pokemon/?offset=${offset}&limit=10`).pipe(
       map(res => {
-        console.log(res)
+        return res
+      })
+    )
+  }
+
+  getPokemon(name: string):Observable<any> {
+    return this.http.get<any>(`${this.api}/pokemon/${name}`).pipe(
+      map(res => {
         return res
       })
     )

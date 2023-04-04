@@ -2,7 +2,7 @@
 <div class="container">
     <div class="home">
         <ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">
-            <infos [pokemon]="pokemon"></infos>
+            <infos [externalName]="pokemon.name"></infos>
         </ng-template>
     </div>
 </div>
