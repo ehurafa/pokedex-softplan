@@ -1,6 +1,34 @@
 <div class="details container">
     <h2>Detalhes</h2>
-    <article>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque nobis laborum quae distinctio blanditiis cum totam sint omnis incidunt facilis voluptatem fugit doloremque, dignissimos ex repudiandae aliquam vel facere odit!</p>
-    </article>
+    <hr />
+    <article class="container">     
+        <h3>{{ pokemon.name }}</h3> 
+        <div class="row">
+            <div class="col col-4">
+                <img [src]="pokemon?.sprites?.front_default" width="100%" /> 
+            </div>
+            <div class="col col-8">
+                <table class="table">
+                    <tr>
+                        <td>Peso</td>
+                        <td>{{ pokemon.weight }}</td>
+                    </tr>
+                    <tr>
+                        <td>Tipo(s)</td>
+                        <td>
+                            <span *ngFor="let type of pokemon.types">{{ type.type.name }}, </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Experiência básica</td>
+                        <td>{{ pokemon.base_experience }}</td>
+                    </tr>
+                </table>
+                <a routerLink="/" class="btn btn-primary">Voltar</a>
+            </div>
+        </div>
+            
+        
+        
+    </article> 
 </div>

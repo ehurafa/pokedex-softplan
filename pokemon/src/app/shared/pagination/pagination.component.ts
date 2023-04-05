@@ -12,7 +12,6 @@ export class PaginationComponent {
   public pages = Array(10);
 
   public next(value: any){
-    console.log('next ', value)
     this.emitNext.emit(value + 1);
   }
 }

@@ -19,7 +19,6 @@ export const removeFavorite = createAction('[Favorites] Removing favorite...',
 export const reducer = createReducer(
     initialState,
     on(addFavorite, (state, { id }) => {
-        console.log('addFavorite', state)
         state = {
             ...state,
             favorites: [...state.favorites, id]
@@ -27,7 +26,6 @@ export const reducer = createReducer(
         return state;
     }),
     on(removeFavorite, (state, { id }) => {
-        console.log('removeFavorite', state)
         const arr = state.favorites.filter(res => res != id )
         state = {
             ...state,

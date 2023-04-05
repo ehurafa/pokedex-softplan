@@ -1,11 +1,13 @@
 <div class="container infos">
     <div class="row">
-      <div class="col infos__left col-2">
+      <div class="col infos__left col-sm-12 col-md-2">
         <figure>
-          <img [src]="pokemon?.sprites?.front_default" width="100%" /> 
+          <a [routerLink]="['/pokemon', pokemon.id]">
+            <img [src]="pokemon?.sprites?.front_default" width="100%" /> 
+          </a>          
         </figure>
       </div>
-      <div class="col infos__center">
+      <div class="col infos__center col-sm-12 col-md-9">
         <form>
             <input type="text" placeholder="Nome do Pokémon" [formControl]="name" value="name" /> 
             <div class="infos__description-area">
@@ -18,7 +20,7 @@
             </div>
         </form>
       </div>
-      <div class="col infos__right col-1">
+      <div class="col infos__right col-md-1 col-sm-12">
         <figure (click)="onFavorite()">
           <img src="assets/img/favorite-star.png" *ngIf="favorite; else elseBlock" />
           <ng-template #elseBlock>

@@ -27,14 +27,6 @@ export class HomeComponent implements OnInit, AfterContentInit {
 
   public favorites: any = [];
 
-  favorites$ = this.store.select('favorites')
-                          .pipe(
-                            map(e => {
-                              // console.log('e >>> ', e)
-                              // e.favorites
-                            })
-                          )
-
   public getPokemons(offset: number){
     this.pokemonsService.getPokemons(offset).subscribe({
       next: (res) => {
@@ -64,12 +56,10 @@ export class HomeComponent implements OnInit, AfterContentInit {
   }
 
   public getFavorite() {
-    console.log('xxx')
     this.store.pipe(select('favorites'))
-          .subscribe(appt => {
-              // console.log('ddd ', appt)
-              this.favorites = appt.favorites
-          });
+        .subscribe(res => {
+            this.favorites = res.favorites
+        });
    
    }
 
