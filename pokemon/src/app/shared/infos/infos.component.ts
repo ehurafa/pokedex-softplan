@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 
 import { PokemonsService } from 'src/app/services/pokemons.service';
-import { FavoriteState, addFavorite, removeFavorite } from 'src/app/store/app.state';
+import { PokemonState, addFavorite, removeFavorite } from 'src/app/store/app.state';
 
 @Component({
   selector: 'infos',
@@ -22,7 +22,7 @@ export class InfosComponent implements  AfterContentInit {
     private pokemonsService: PokemonsService,
     private route: ActivatedRoute,
     private router: Router,
-    private store: Store<{ favorites: FavoriteState }>
+    private store: Store<{ pokemon: PokemonState }>
     ) { }
 
   name = new FormControl('');
@@ -54,9 +54,9 @@ export class InfosComponent implements  AfterContentInit {
   }
 
   public getFavorite() {
-    this.store.pipe(select('favorites'))
-          .subscribe(appt => {
-              this.externalFavorites = appt.favorites
+    this.store.pipe(select('pokemon'))
+          .subscribe(res => {
+              this.externalFavorites = res.pokemon.favorites
           });
    }
   ngAfterContentInit() {

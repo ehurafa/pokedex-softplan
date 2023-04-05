@@ -3,6 +3,6 @@
     <form>
         <input type="text" placeholder="Nome" [formControl]="name"  />
         <textarea placeholder="Comentário" [formControl]="comment"></textarea>
-        <button class="btn btn-primary">Salvar</button>
+        <button class="btn btn-primary" (click)="onComment(); $event.preventDefault()">Salvar</button>
     </form>
 </div>

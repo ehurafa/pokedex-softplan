@@ -3,7 +3,7 @@ import { Store, select } from '@ngrx/store';
 import { map } from 'rxjs';
 
 import { PokemonsService } from 'src/app/services/pokemons.service';
-import { FavoriteState, addFavorite } from 'src/app/store/app.state';
+import { PokemonState } from 'src/app/store/app.state';
 
 @Component({
   selector: 'home',
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit, AfterContentInit {
 
   constructor(
     private pokemonsService: PokemonsService,
-    private store: Store<{ favorites: FavoriteState }>
+    private store: Store<{ pokemon: PokemonState }>
     ) { }
 
   public pokemons: any = [];
@@ -56,11 +56,10 @@ export class HomeComponent implements OnInit, AfterContentInit {
   }
 
   public getFavorite() {
-    this.store.pipe(select('favorites'))
+    this.store.pipe(select('pokemon'))
         .subscribe(res => {
-            this.favorites = res.favorites
-        });
-   
+            this.favorites = res.pokemon.favorites
+        });   
    }
 
    ngOnInit() {

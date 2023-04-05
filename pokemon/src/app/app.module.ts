@@ -20,7 +20,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     PagesModule,
     SharedModule,
     HttpClientModule,
-    StoreModule.forRoot({ favorites: reducer }),
+    StoreModule.forRoot({ pokemon: reducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [],
