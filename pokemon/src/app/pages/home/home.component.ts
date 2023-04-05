@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { Store, select } from '@ngrx/store';
 import { map } from 'rxjs';
 
 import { PokemonsService } from 'src/app/services/pokemons.service';
-import { FavoriteState, favoritar } from 'src/app/store/app.state';
+import { FavoriteState, addFavorite } from 'src/app/store/app.state';
 
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterContentInit {
 
   private allPokemons: any;
   public getAllPokemons: any;
@@ -25,23 +25,20 @@ export class HomeComponent implements OnInit {
 
   public pokemons: any = [];
 
+  public favorites: any = [];
+
   favorites$ = this.store.select('favorites')
                           .pipe(
                             map(e => {
-                              console.log('e >>> ', e)
+                              // console.log('e >>> ', e)
                               // e.favorites
                             })
                           )
-
-  ngOnInit() {
-   this.getPokemons(1);
-  }
 
   public getPokemons(offset: number){
     this.pokemonsService.getPokemons(offset).subscribe({
       next: (res) => {
         const { results } = res
-        console.log('RES ', results);
         this.allPokemons = res.results;
         this.getAllPokemons = this.allPokemons;
       },
@@ -55,7 +52,6 @@ export class HomeComponent implements OnInit {
     });   
     this.getAllPokemons = filter;
     filter.length ? this.empty = false : this.empty = true;
-    console.log(this.getAllPokemons.length)
   }
 
   public nextPage(page: any) {
@@ -67,9 +63,24 @@ export class HomeComponent implements OnInit {
     this.pageNumber = page;
   }
 
-  public teste() {
-    console.log('teste ', this.store)
-    this.store.dispatch(favoritar())
-    console.log('teste ', this.store)
+  public getFavorite() {
+    console.log('xxx')
+    this.store.pipe(select('favorites'))
+          .subscribe(appt => {
+              // console.log('ddd ', appt)
+              this.favorites = appt.favorites
+          });
+   
    }
+
+   ngOnInit() {
+    this.getPokemons(1);
+   }
+ 
+   ngAfterContentInit() {
+     this.getFavorite();
+   }
+ 
+
+
 }
